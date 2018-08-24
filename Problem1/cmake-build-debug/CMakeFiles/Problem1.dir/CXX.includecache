@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/matte/Documents/GitHub/basic-data-structures/List/list.h
+
+C:/Users/matte/Documents/GitHub/basic-data-structures/Problem1/doubleLinkedList.h
+iostream
+-
+../List/list.h
+C:/Users/matte/Documents/GitHub/basic-data-structures/List/list.h
+
+C:/Users/matte/Documents/GitHub/basic-data-structures/Problem1/main.cpp
+iostream
+-
+doubleLinkedList.h
+C:/Users/matte/Documents/GitHub/basic-data-structures/Problem1/doubleLinkedList.h
+string
+-
+vector
+-
+

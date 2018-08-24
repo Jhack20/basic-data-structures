@@ -7,6 +7,9 @@
 //
 
 #include <iostream>
+#include "doubleLinkedList.h"
+#include <string>
+#include <vector>
 
 /*
 
@@ -26,7 +29,30 @@
 
 
 int main(int argc, const char * argv[]) {
+    DoubleLinkedList<char> list;
+
     std::cout << "Balanced brackets!!\n";
+
+    std::string str;
+    std::cin >> str;
+
+    std::vector<char> chars;
+
+    for (char c:str) {
+        chars.push_back(c);
+    }
+
+    for (char c: chars) {
+        std::cout << c << " ";
+    }
+    std::cout << "\n";
+
+    for (char c: chars) {
+        list.push_back(c);
+    }
+    list.describe();
+
+
     
     return 0;
 }

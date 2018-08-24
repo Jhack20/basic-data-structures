@@ -22,6 +22,16 @@ int main(int argc, const char * argv[]) {
     list.push_back("y");
     list.push_back("z");
     list.describe();
+
+    list.pop_front();
+    list.pop_front();
+    list.pop_front();
+    list.describe();
+
+    list.pop_back();
+    list.pop_back();
+    list.pop_back();
+    list.describe();
     
     /* Uncomment the lines below when you finish your implementation task */
 //    Testable::run(unit_tests, TestLevel::easy);

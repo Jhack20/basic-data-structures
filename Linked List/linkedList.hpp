@@ -33,18 +33,53 @@ namespace cs2100 {
         
         void push_front (AnyObject value) {
             /* Complete this function */
+            Node *temp = new Node;
+
+            temp->value = value;
+            temp->pointer = head;
+
+            head = temp;
         }
         
         void push_back (AnyObject value) {
             /* Complete this function */
+            Node *temp=new Node;
+            temp->value=value;
+            temp->pointer=nullptr;
+            if (!head) {
+                head = temp;
+            }
+            else {
+                Node *current=head;
+                for ( ; current->pointer != nullptr ; current=current->pointer);
+                current->pointer=temp;
+            }
         }
         
         void pop_front() {
             /* Complete this function */
+            if (head != nullptr) {
+                Node *temp = new Node;
+                temp = head;
+                head = head->pointer;
+                delete temp;
+            }
+
         }
         
         void pop_back() {
             /* Complete this function */
+            Node *current=new Node;
+            Node *previous=new Node;
+            current=head;
+            while(current->pointer != nullptr)
+            {
+                previous=current;
+                current=current->pointer;
+            }
+            tail=previous;
+            previous->pointer=nullptr;
+            delete current;
         }
         
         inline void describe () {

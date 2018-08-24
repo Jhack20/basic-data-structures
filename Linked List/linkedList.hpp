@@ -32,27 +32,59 @@ namespace cs2100 {
         Node * getTail () { return tail; }
         
         void push_front (AnyObject value) {
-            /* Complete this function */
+            Node * new_node = new Node{value, head};
+            if (head == nullptr) {
+                tail = new_node;
+            }
+            head = new_node;
         }
         
         void push_back (AnyObject value) {
-            /* Complete this function */
+            Node * new_node = new Node{value, nullptr};
+            if (tail != nullptr) {
+                tail->pointer = new_node;
+            } else {
+                head = new_node;
+            }
+            tail = new_node;
         }
         
         void pop_front() {
-            /* Complete this function */
+            if (head != nullptr) {
+                if (head->pointer == nullptr) {
+                    tail = nullptr;
+                }
+                Node * new_head = head->pointer;
+                delete head;
+                head = new_head;
+            }
         }
         
         void pop_back() {
-            /* Complete this function */
+            if (tail != nullptr) {
+                Node * current = head;
+                while (current != nullptr) {
+                    if (current->pointer == tail) break;
+                    current = current->pointer;
+                }
+                
+                if (head->pointer == nullptr) {
+                    head = nullptr;
+                }
+                Node * new_tail = current;
+                new_tail->pointer = nullptr;
+                delete tail;
+                tail = new_tail;
+            }
         }
         
         inline void describe () {
             std::cout << "List:" << ((!head) ? " (empty)": " ");
-            for ( Node * current = head ; current != nullptr ; current = current->pointer ) {
+            Node * current = head;
+            while (current != nullptr) {
                 std::cout << current->value << " ";
+                current = current->pointer;
             }
-            std::cout << "\n";
         }
     };
 }

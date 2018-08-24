@@ -19,9 +19,9 @@ int main(int argc, const char * argv[]) {
     books.describe();
     
     /* Uncomment the lines below when you finish your implementation task */
-//    Testable::run(unit_tests, TestLevel::easy);
-//    Testable::run(unit_tests, TestLevel::tricky);
-//    Testable::run(unit_tests, TestLevel::hard);
+    Testable::run(unit_tests, TestLevel::easy);
+    Testable::run(unit_tests, TestLevel::tricky);
+    Testable::run(unit_tests, TestLevel::hard);
 
     return 0;
 }

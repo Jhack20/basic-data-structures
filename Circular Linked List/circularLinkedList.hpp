@@ -18,8 +18,8 @@ namespace cs2100 {
     private:
         struct Node {
             AnyObject value;
-            Node * next_pointer;
-            Node * previous_pointer;
+            Node * next_pointer = nullptr;
+            Node * previous_pointer = nullptr;
         };
         
         Node * head = nullptr;
@@ -31,25 +31,68 @@ namespace cs2100 {
         Node * getHead () { return head; }
         
         void push_front (AnyObject value) {
-            /* Complete this function */
+            Node * new_node = new Node{value, head, nullptr};
+            if (head != nullptr) {
+                new_node->previous_pointer = head->previous_pointer;
+                head->previous_pointer->next_pointer = new_node;
+                head->previous_pointer = new_node;
+            } else {
+                new_node->previous_pointer = new_node;
+                new_node->next_pointer = new_node;
+            }
+            head = new_node;
         }
         
         void push_back (AnyObject value) {
-            /* Complete this function */
+            Node * new_node = new Node{value, head, nullptr};
+            if (head != nullptr) {
+                new_node->previous_pointer = head->previous_pointer;
+                head->previous_pointer->next_pointer = new_node;
+                head->previous_pointer = new_node;
+            } else {
+                new_node->previous_pointer = new_node;
+                new_node->next_pointer = new_node;
+                head = new_node;
+            }
         }
         
         void pop_front() {
-            /* Complete this function */
+            if (head != nullptr) {
+                if (head->next_pointer != head) {
+                    head->next_pointer->previous_pointer = head->previous_pointer;
+                    head->previous_pointer->next_pointer = head->next_pointer; 
+                    Node * new_head = head->next_pointer;
+                    delete head;
+                    head = new_head;    
+                } else {
+                    delete head;
+                    head = nullptr;
+                }
+            }
         }
         
         void pop_back() {
-            /* Complete this function */
+            if (head != nullptr) {
+                if (head->next_pointer != head) {
+                    Node * new_tail = head->previous_pointer->previous_pointer;
+                    delete head->previous_pointer;
+                    head->previous_pointer = new_tail; 
+                    new_tail->next_pointer = head;    
+                } else {
+                    delete head;
+                    head = nullptr;
+                }
+            }
         }
         
         inline void describe () {
-            std::cout << "List:" << ((!head) ? " (empty)": " ");
-            
-            /* Complete this function */
+            std::cout << "List:" << ((!head) ? " (empty) ": " ");
+            Node * current = head;
+            while (current != nullptr) {
+                std::cout << current->value << " ";
+                current = current->next_pointer;    
+                if (current == head) break;
+            }
         }
     };
 }

@@ -41,8 +41,8 @@ TestCases unit_tests = {
             ASSERT(list.getTail() == nullptr);
             list.push_front("z"); list.push_front("y"); list.push_front("x");
             list.pop_front(); list.pop_front();
-            ASSERT(list.getHead()->value == "x");
-            ASSERT(list.getTail()->value == "x");
+            ASSERT(list.getHead()->value == "z");
+            ASSERT(list.getTail()->value == "z");
             list.pop_front(); list.pop_back(); list.pop_back();
             ASSERT(list.getHead() == nullptr);
             ASSERT(list.getTail() == nullptr);

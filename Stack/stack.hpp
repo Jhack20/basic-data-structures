@@ -26,20 +26,56 @@ namespace cs2100 {
         Stack()  = default;
         
         ~Stack() {
-            for ( Node * current = root ; current != nullptr ; current = current->pointer ){
+            for ( Node *current = root ; current != nullptr ; current = current->pointer ){
                 this->pop();
             }
         };
         
-        Node * top ()   { return root; }
+        Node * top ()   {
+            for (Node *current = root; current != nullptr; current = current->pointer) {
+                return current;
+            }
+        }
         bool isEmpty () { return !root; }
         
         void push(AnyObject value) {
             /* Complete this function */
+            if (root == nullptr) {
+                Node *temp = new Node;
+
+                temp->value = value;
+                temp->pointer = nullptr;
+
+                Node *last = new Node;
+                last = top();
+
+                root = temp;
+                last = temp;
+
+            } else {
+                Node *temp = new Node;
+                temp->value = value;
+                temp->pointer = root;
+                root = temp;
+            }
         }
         
         void pop() {
             /* Complete this function */
+            Node *last = new Node;
+            last = top();
+
+            if(root == last) {
+                delete root;
+                root = nullptr;
+                last = nullptr;
+            }
+            else {
+                Node *temp = new Node;
+                temp = root;
+                root = root->pointer;
+                delete temp;
+            }
         }
         
         inline void describe () {
@@ -50,7 +86,7 @@ namespace cs2100 {
             std::cout << "\n";
         }
     };
-}
+};
 
 template <class AnyObject>
 using Stack = cs2100::Stack<AnyObject>;

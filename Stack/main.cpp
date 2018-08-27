@@ -15,7 +15,11 @@ int main(int argc, const char * argv[]) {
     books.push("Introduction to Algorithms");
     books.push("C++17 STL Cookbook");
     books.push("The Art of Computer Programming");
+    books.describe();
 
+    books.pop();
+    books.pop();
+    books.pop();
     books.describe();
     
     /* Uncomment the lines below when you finish your implementation task */

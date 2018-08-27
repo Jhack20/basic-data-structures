@@ -21,6 +21,7 @@ namespace cs2100 {
         
         virtual void describe  () = 0;
     };
+
     
 }
 

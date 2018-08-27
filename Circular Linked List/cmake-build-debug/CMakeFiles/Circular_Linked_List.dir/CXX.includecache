@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/matte/Documents/GitHub/basic-data-structures/Circular Linked List/circularLinkedList.hpp
+iostream
+-
+../List/list.h
+C:/Users/matte/Documents/GitHub/basic-data-structures/List/list.h
+
+C:/Users/matte/Documents/GitHub/basic-data-structures/Circular Linked List/main.cpp
+circularLinkedList.hpp
+C:/Users/matte/Documents/GitHub/basic-data-structures/Circular Linked List/circularLinkedList.hpp
+unit_tests.hpp
+C:/Users/matte/Documents/GitHub/basic-data-structures/Circular Linked List/unit_tests.hpp
+
+C:/Users/matte/Documents/GitHub/basic-data-structures/Circular Linked List/unit_tests.hpp
+../Test/testable.hpp
+C:/Users/matte/Documents/GitHub/basic-data-structures/Test/testable.hpp
+
+C:/Users/matte/Documents/GitHub/basic-data-structures/List/list.h
+
+C:/Users/matte/Documents/GitHub/basic-data-structures/Test/testable.hpp
+cassert
+-
+iostream
+-
+functional
+-
+map
+-
+ostream
+-
+

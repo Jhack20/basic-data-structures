@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/matte/Documents/GitHub/basic-data-structures/Stack/main.cpp
+stack.hpp
+C:/Users/matte/Documents/GitHub/basic-data-structures/Stack/stack.hpp
+unit_tests.hpp
+C:/Users/matte/Documents/GitHub/basic-data-structures/Stack/unit_tests.hpp
+
+C:/Users/matte/Documents/GitHub/basic-data-structures/Stack/stack.hpp
+iostream
+-
+
+C:/Users/matte/Documents/GitHub/basic-data-structures/Stack/unit_tests.hpp
+../Test/testable.hpp
+C:/Users/matte/Documents/GitHub/basic-data-structures/Test/testable.hpp
+
+C:/Users/matte/Documents/GitHub/basic-data-structures/Test/testable.hpp
+cassert
+-
+iostream
+-
+functional
+-
+map
+-
+ostream
+-
+

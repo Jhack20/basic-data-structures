@@ -12,39 +12,58 @@
 #include <iostream>
 
 namespace cs2100 {
-    template <class AnyObject>
+    template<class AnyObject>
     class Stack {
     private:
         struct Node {
             AnyObject value;
-            Node * pointer;
+            Node *pointer;
         };
-        
-        Node * root = nullptr;
-        
+
+        Node *root = nullptr;
+
     public:
-        Stack()  = default;
-        
+        Stack() = default;
+
         ~Stack() {
-            for ( Node * current = root ; current != nullptr ; current = current->pointer ){
+            for (Node *current = root; current != nullptr; current = current->pointer) {
                 this->pop();
             }
         };
-        
-        Node * top ()   { return root; }
-        bool isEmpty () { return !root; }
-        
+
+        Node *top() { return root; }
+
+        bool isEmpty() { return !root; }
+
         void push(AnyObject value) {
-            /* Complete this function */
+            Node *newNode = new Node{value, nullptr};
+
+            // first element
+            if (isEmpty()) {
+                root = newNode;
+                return;
+            }
+
+            // other case
+            newNode->pointer = root;
+            root = newNode;
         }
-        
+
         void pop() {
-            /* Complete this function */
+            // There are not elements
+            if (isEmpty()) {
+                return;
+            }
+
+            Node *toDeleteElement = root;
+            root = root->pointer;
+
+            delete toDeleteElement;
         }
-        
-        inline void describe () {
-            std::cout << "\nStack:" << ((!root) ? " (empty)": " ");
-            for( Node * current = root ; current != nullptr ; current = current->pointer ){
+
+        void describe() {
+            std::cout << "\nStack:" << ((!root) ? " (empty)" : " ");
+            for (Node *current = root; current != nullptr; current = current->pointer) {
                 std::cout << "\n" << current->value;
             }
             std::cout << "\n";
@@ -52,7 +71,7 @@ namespace cs2100 {
     };
 }
 
-template <class AnyObject>
+template<class AnyObject>
 using Stack = cs2100::Stack<AnyObject>;
 
 #endif /* stack_h */

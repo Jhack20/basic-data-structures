@@ -21,10 +21,10 @@ int main(int argc, const char * argv[]) {
     
     list.describe();
     
-    /* Uncomment the lines below when you finish your implementation task */
-//    Testable::run(unit_tests, TestLevel::easy);
-//    Testable::run(unit_tests, TestLevel::tricky);
-//    Testable::run(unit_tests, TestLevel::hard);
+    /* Test */
+    Testable::run(unit_tests, TestLevel::easy);
+    Testable::run(unit_tests, TestLevel::tricky);
+    Testable::run(unit_tests, TestLevel::hard);
     
     return 0;
 }

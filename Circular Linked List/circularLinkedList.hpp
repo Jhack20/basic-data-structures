@@ -16,22 +16,32 @@ namespace cs2100 {
     template <class AnyObject>
     class CircularLinkedList final : List<AnyObject> {
     private:
-        struct Node {
+        typedef struct Node {
             AnyObject value;
             Node * next_pointer;
             Node * previous_pointer;
-        };
+        }* NodePtr;
         
-        Node * head = nullptr;
+        NodePtr head = nullptr;
         
     public:
         CircularLinkedList() = default;
         ~CircularLinkedList() = default;
         
-        Node * getHead () { return head; }
+        NodePtr getHead () { return head; }
         
         void push_front (AnyObject value) {
-            /* Complete this function */
+            if (head == nullptr){
+                NodePtr newNode = new Node{value, nullptr, nullptr};
+                newNode->next_pointer = newNode;
+                newNode->previous_pointer = newNode;
+                head = newNode;
+            } else {
+                NodePtr newNode = new Node{value, head, head->previous_pointer};
+                head->previous_pointer->next_pointer = newNode;
+                head->previous_pointer = newNode;
+                head = newNode;
+            }
         }
         
         void push_back (AnyObject value) {
@@ -48,8 +58,14 @@ namespace cs2100 {
         
         inline void describe () {
             std::cout << "List:" << ((!head) ? " (empty)": " ");
-            
-            /* Complete this function */
+            if (head != nullptr){
+                NodePtr p = head;
+                do{
+                    std::cout << p->value << " ";
+                    p = p->next_pointer;
+                } while (p != head);
+            }
+            std::cout << std::endl;
         }
     };
 }

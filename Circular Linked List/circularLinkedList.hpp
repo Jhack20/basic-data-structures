@@ -29,27 +29,73 @@ namespace cs2100 {
         ~CircularLinkedList() = default;
         
         Node * getHead () { return head; }
-        
+
         void push_front (AnyObject value) {
-            /* Complete this function */
+            if(head!= nullptr ){
+                Node *newnode= new Node{value, head,head->previous_pointer};
+                head->previous_pointer->next_pointer=newnode;
+                head->previous_pointer=newnode;
+                head=newnode;
+            }
+            else{
+                Node *newnode= new Node{value, newnode, newnode};
+                head=newnode;
+
+            }
         }
-        
+
         void push_back (AnyObject value) {
-            /* Complete this function */
+            if(head!= nullptr ){
+                Node *newnode= new Node{value, head,head->previous_pointer->previous_pointer};
+                head->previous_pointer->next_pointer=newnode;
+                head->previous_pointer=newnode;
+
+            }
+            else{
+                Node *newnode= new Node{value, newnode, newnode};
+                head=newnode;
+
+            }
         }
-        
+
         void pop_front() {
-            /* Complete this function */
+            if(head!= nullptr ){
+
+
+                    Node *puntero=head;
+                    puntero->next_pointer->previous_pointer= head->previous_pointer;
+                puntero->previous_pointer->next_pointer=head->next_pointer;
+                head=head->next_pointer;
+                    delete (puntero);
+
+
+
+            }
         }
-        
+
+
+
         void pop_back() {
-            /* Complete this function */
+            if(head!= nullptr ){
+
+
+                    Node *puntero=head->previous_pointer;
+                    puntero->previous_pointer->next_pointer= head;
+                    head->previous_pointer=puntero;
+
+                    delete (puntero);
+
+
+            }
         }
-        
         inline void describe () {
             std::cout << "List:" << ((!head) ? " (empty)": " ");
-            
-            /* Complete this function */
+
+            for ( Node * current = head ; current != head->previous_pointer ; current = current->next_pointer ) {
+
+                std::cout << current->value << " ";
+            }
+            std::cout << "\n";
         }
     };
 }

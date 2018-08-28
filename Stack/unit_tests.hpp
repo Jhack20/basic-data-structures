@@ -36,7 +36,7 @@ TestCases unit_tests = {
             ASSERT(stack.top()->value == 3);
             stack.pop(); stack.pop();
             ASSERT(stack.top()->value == 1);
-            stack.pop(); stack.pop(); stack.pop(); stack.pop(); stack.pop();
+            stack.pop();
             ASSERT(stack.top() == nullptr);
         }
     }

@@ -33,19 +33,69 @@ namespace cs2100 {
         Node * getTail () { return tail; }
         
         void push_front (AnyObject value) {
-            /* Complete this function */
+            if(head!= nullptr and tail!= nullptr){
+                Node *newnode= new Node{value, head, nullptr};
+                head->previous_pointer=newnode;
+                head=newnode;
+            }
+            else{
+                Node *newnode= new Node{value, nullptr, nullptr};
+                head=newnode;
+                tail=newnode;
+            }
         }
         
         void push_back (AnyObject value) {
-            /* Complete this function */
+            if(head!= nullptr and tail!= nullptr){
+                Node *newnode= new Node{value, nullptr, tail};
+                tail->next_pointer=newnode;
+                tail=newnode;
+            }
+            else{
+                Node *newnode= new Node{value, nullptr, nullptr};
+                head=newnode;
+                tail=newnode;
+            }
         }
         
         void pop_front() {
-            /* Complete this function */
+            if(head!= nullptr and tail!= nullptr){if(head!=tail){
+
+
+                    Node *puntero=head;
+                    puntero->next_pointer->previous_pointer= nullptr;
+                    head=head->next_pointer;
+                    delete (puntero);}
+                else{Node *punt=head;
+                    head= nullptr;
+                    tail=nullptr;
+                    delete punt;
+
+                }
+
+
+            }
         }
+
+
         
         void pop_back() {
-            /* Complete this function */
+            if(head!= nullptr and tail!= nullptr){if(head!=tail){
+
+
+                    Node *puntero=tail;
+                    puntero->previous_pointer->next_pointer= nullptr;
+                    tail=tail->previous_pointer;
+                    delete (puntero);}
+                else{Node *punt=head;
+                    head= nullptr;
+                    tail=nullptr;
+                    delete punt;
+
+                }
+
+
+            }
         }
         
         inline void describe () {

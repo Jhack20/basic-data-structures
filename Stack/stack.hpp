@@ -33,14 +33,18 @@ namespace cs2100 {
         
         Node * top ()   { return root; }
         bool isEmpty () { return !root; }
-        
+
         void push(AnyObject value) {
-            /* Complete this function */
-        }
+            Node *newnode= new Node{value,root};
+            root=newnode;        }
         
         void pop() {
-            /* Complete this function */
+
+                Node *old=root;
+                root=old->pointer;
+                delete old;
         }
+
         
         inline void describe () {
             std::cout << "\nStack:" << ((!root) ? " (empty)": " ");

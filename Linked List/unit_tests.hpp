@@ -33,7 +33,7 @@ TestCases unit_tests = {
             ASSERT(list.getHead()->value == "a");
             ASSERT(list.getTail()->value == "z");
             
-            list.pop_front(); list.pop_front(); list.pop_front();
+            list.pop_front(); list.pop_front();list.pop_front();
             ASSERT(list.getHead()->value == "x");
             ASSERT(list.getTail()->value == "z");
         }

@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <map>
 
 /*
 
@@ -26,7 +27,30 @@
 
 
 int main(int argc, const char * argv[]) {
-    std::cout << "Balanced brackets!!\n";
-    
+    std::string x;
+    std::map<char,int>contador;
+    contador['(']=0;
+    contador[')']=0;
+    contador['[']=0;
+    contador[']']=0;
+    std::cout<<"ingrese string: ";
+    std::cin>>x;
+    for(auto &i:x){
+        contador[i]+=1;
+        switch(i){
+            case ')':if(contador[')']>contador['(']){
+std::cout<<"false";exit(0);
+                }break;
+            case ']':if(contador[']']>contador['[']){
+                    std::cout<<"false";exit(0);
+                }break;
+        }
+    }
+    if(contador['(']==contador[')'] and contador['[']==contador[']'] ){
+        std::cout<<"true";
+    }
+    else{
+        std::cout<<"false";
+    }
     return 0;
 }

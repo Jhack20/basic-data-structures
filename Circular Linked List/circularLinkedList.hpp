@@ -45,15 +45,50 @@ namespace cs2100 {
         }
         
         void push_back (AnyObject value) {
-            /* Complete this function */
+            if (head == nullptr){
+                NodePtr newNode = new Node{value, nullptr, nullptr};
+                newNode->next_pointer = newNode;
+                newNode->previous_pointer = newNode;
+                head = newNode;
+            } else{
+                NodePtr newNode = new Node{value, head, head->previous_pointer};
+                head->previous_pointer->next_pointer = newNode;
+                head->previous_pointer = newNode;
+                head->previous_pointer = newNode;
+            }
         }
         
         void pop_front() {
-            /* Complete this function */
+            if (head) {
+                if (head == head->next_pointer){
+                    delete head;
+                    head = nullptr;
+                } else {
+                    NodePtr lastNode = head->previous_pointer;
+                    NodePtr secondNode = head->next_pointer;
+                    delete head;
+                    head = nullptr;
+                    head = secondNode;
+                    lastNode->next_pointer = head;
+                    head->previous_pointer = lastNode;
+                }
+            }
         }
         
         void pop_back() {
-            /* Complete this function */
+            if (head) {
+                if(head == head->next_pointer) {
+                    delete head;
+                    head = nullptr;
+                    std::cout << "1" << std::endl;
+                } else {
+                    NodePtr lastNode = head->previous_pointer->previous_pointer;
+                    delete head->previous_pointer;
+                    head->previous_pointer = nullptr;
+                    head->previous_pointer = lastNode;
+                    lastNode->next_pointer = head;
+                }
+            }
         }
         
         inline void describe () {

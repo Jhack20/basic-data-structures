@@ -10,6 +10,7 @@
 #define unit_tests_h
 
 #include "../Test/testable.hpp"
+#include "linkedList.hpp"
 
 TestCases unit_tests = {
     {

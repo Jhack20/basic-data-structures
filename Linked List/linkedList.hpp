@@ -16,37 +16,76 @@ namespace cs2100 {
     template <class AnyObject>
     class LinkedList final : List<AnyObject> {
     private:
-        struct Node {
+        typedef struct Node {
             AnyObject value;
             Node * pointer;
-        };
-        
-        Node * head = nullptr;
-        Node * tail = nullptr;
-        
+        }* NodePtr;
+
+        NodePtr head = nullptr;
+        NodePtr tail = nullptr;
+
     public:
         LinkedList() = default;
         ~LinkedList() = default;
-        
-        Node * getHead () { return head; }
-        Node * getTail () { return tail; }
-        
+
+        NodePtr getHead () { return head; }
+        NodePtr getTail () { return tail; }
+
         void push_front (AnyObject value) {
-            /* Complete this function */
+            if (!head) {
+                NodePtr newNode = new Node{value, nullptr};
+                head = newNode;
+                tail = newNode;
+            } else {
+                NodePtr newNode = new Node{value, head};
+                head = newNode;
+            }
         }
-        
+
         void push_back (AnyObject value) {
-            /* Complete this function */
+            if (!head) {
+                NodePtr  newNode = new Node{value, nullptr};
+                head = newNode;
+                tail = newNode;
+            } else {
+                NodePtr newNode = new Node{value, nullptr};
+                tail->pointer = newNode;
+                tail = newNode;
+            }
         }
-        
+
         void pop_front() {
-            /* Complete this function */
+            if (head) {
+                if (head->pointer == nullptr) {
+                    delete head, tail;
+                    head = tail =  nullptr;
+                } else {
+                    NodePtr secondPtr = head->pointer;
+                    delete head;
+                    head = nullptr;
+                    head = secondPtr;
+                }
+            }
         }
-        
+
         void pop_back() {
-            /* Complete this function */
+            if(head) {
+                if (head->pointer == nullptr){
+                    delete head, tail;
+                    head = tail = nullptr;
+                } else {
+                    NodePtr current = head;
+                    while (current->pointer != tail) {
+                        current = current->pointer;
+                    }
+                    delete tail;
+                    tail = nullptr;
+                    current->pointer = nullptr;
+                    tail = current;
+                }
+            }
         }
-        
+
         inline void describe () {
             std::cout << "List:" << ((!head) ? " (empty)": " ");
             for ( Node * current = head ; current != nullptr ; current = current->pointer ) {

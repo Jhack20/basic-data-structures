@@ -17,16 +17,17 @@ int main(int argc, const char * argv[]) {
     list.push_front("b");
     list.push_front("a");
     list.describe();
-    
+
     list.push_back("x");
     list.push_back("y");
     list.push_back("z");
     list.describe();
+
     
     /* Uncomment the lines below when you finish your implementation task */
-//    Testable::run(unit_tests, TestLevel::easy);
-//    Testable::run(unit_tests, TestLevel::tricky);
-//    Testable::run(unit_tests, TestLevel::hard);
+    Testable::run(unit_tests, TestLevel::easy);
+    Testable::run(unit_tests, TestLevel::tricky);
+    Testable::run(unit_tests, TestLevel::hard);
     
     return 0;
 }

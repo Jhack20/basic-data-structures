@@ -9,6 +9,7 @@
 #pragma once
 
 #include "../Test/testable.hpp"
+#include "circularLinkedList.hpp"
 
 TestCases unit_tests = {
     {

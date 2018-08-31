@@ -4,13 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/matte/Documents/GitHub/basic-data-structures/Double Linked List/main.cpp" "C:/Users/matte/Documents/GitHub/basic-data-structures/Double Linked List/cmake-build-debug/CMakeFiles/Double_Linked_List.dir/main.cpp.obj"
+  "C:/Users/matte/Documents/GitHub/basic-data-structures/Double Linked List/cmake-build-debug/CMakeFiles/feature_tests.cxx" "C:/Users/matte/Documents/GitHub/basic-data-structures/Double Linked List/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_13642.dir/feature_tests.cxx.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../."
   )
 
 # Targets to which this target links.

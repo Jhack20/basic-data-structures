@@ -1,3 +1,0 @@
-C:/Users/matte/Documents/GitHub/basic-data-structures/Double Linked List/cmake-build-debug/CMakeFiles/Double_Linked_List.dir
-C:/Users/matte/Documents/GitHub/basic-data-structures/Double Linked List/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/matte/Documents/GitHub/basic-data-structures/Double Linked List/cmake-build-debug/CMakeFiles/rebuild_cache.dir

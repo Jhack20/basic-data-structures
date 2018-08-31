@@ -11,20 +11,29 @@
 
 #include <iostream>
 #include "../List/list.h"
+#include "list_iterator.hpp"
 
 namespace cs2100 {
+    
+    template <class AnyObject>
+    class ForwardIterator;
+    
     template <class AnyObject>
     class LinkedList final : List<AnyObject> {
-    private:
+    public:
         struct Node {
             AnyObject value;
             Node * pointer;
         };
         
+    private:
         Node * head = nullptr;
         Node * tail = nullptr;
         
     public:
+    
+        typedef ForwardIterator<AnyObject> ForwardIterator;
+        
         LinkedList() = default;
         ~LinkedList() = default;
         
@@ -54,7 +63,12 @@ namespace cs2100 {
             }
             std::cout << "\n";
         }
+        
+        /* Iterator functions goes here */
+        
+        // ....
     };
+    
 }
 
 template <class AnyObject>
